@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Bulk buyers arrive via AI answer engines too — let them cite you.
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://vetriver.in/trade/sitemap.xml
