@@ -114,8 +114,11 @@ h1 em{font-style:italic;font-weight:300;color:var(--gold);display:block}
 
 .hero-img{position:relative;border-radius:3px;overflow:hidden;border:1px solid var(--line);
   box-shadow:0 30px 60px -30px rgba(22,48,31,.28);
-  aspect-ratio:1; width:100%;}
-.hero-img img,.hero-img video{width:100%;height:100%;object-fit:cover;display:block}
+  width:100%;}
+.hero-img img{aspect-ratio:1;width:100%;height:100%;object-fit:cover;display:block}
+/* the product video is landscape (16:9) — let it keep its own ratio instead of
+   being cropped into the square the poster image used */
+.hero-img video{aspect-ratio:16/9;width:100%;height:auto;object-fit:cover;display:block}
 
 /* mute/unmute toggle on the hero video */
 .mute-btn{
