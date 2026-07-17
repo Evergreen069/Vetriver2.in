@@ -13,3 +13,21 @@ if(heroVideo && muteBtn){
     muteBtn.setAttribute('aria-label', heroVideo.muted ? 'Unmute video' : 'Mute video');
   };
 }
+
+/* ---------- mobile menu: close after a link is tapped ---------- */
+const mobileMenu = document.getElementById('mobileMenu');
+if(mobileMenu){
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.open = false));
+}
+
+/* ---------- splash: plays once per browser session, skipped if the
+   visitor has already seen it on an earlier page this visit ---------- */
+if(sessionStorage.getItem('vetriver_splash_seen')){
+  document.body.classList.add('no-splash');
+} else {
+  sessionStorage.setItem('vetriver_splash_seen', '1');
+  const splash = document.querySelector('.splash');
+  if(splash) splash.addEventListener('animationend', e => {
+    if(e.animationName === 'splash-out') splash.remove();
+  });
+}

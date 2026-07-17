@@ -270,3 +270,288 @@ footer address{font-style:normal;font-size:14.5px;line-height:1.8}
 .rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none}}
+
+/* ================= SPLASH (logo-on-load) =================
+   Brief, then gone — this must never read as a loading screen. It fades
+   the moment the logo has been seen, and only plays once per browser
+   session so repeat page loads during the same visit aren't gated. */
+.splash{
+  position:fixed;inset:0;z-index:200;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  animation:splash-out .5s ease 1.05s forwards;
+}
+.splash img{width:64px;height:64px;animation:splash-in .6s ease both}
+.splash small{
+  position:absolute;bottom:calc(50% - 54px);left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold-lit);opacity:0;animation:splash-in .6s ease .15s both;
+}
+@keyframes splash-in{from{opacity:0;transform:translateY(8px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes splash-out{to{opacity:0;visibility:hidden;pointer-events:none}}
+body.no-splash .splash{display:none}
+@media (prefers-reduced-motion: reduce){
+  .splash{animation:splash-out .01ms ease .01ms forwards}
+  .splash img,.splash small{animation:none;opacity:1;transform:none}
+}
+
+/* ================= MOBILE MENU ================= */
+.menu{display:none;position:relative}
+.menu>summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;
+  width:42px;height:42px;justify-content:center;
+  border:1px solid var(--line);border-radius:2px;color:var(--ink);
+}
+.menu>summary::-webkit-details-marker{display:none}
+.menu>summary:hover{border-color:var(--gold)}
+.menu[open]>summary{border-color:var(--gold);background:rgba(169,123,46,.08)}
+.menu-panel{
+  position:absolute;right:0;top:calc(100% + 12px);min-width:190px;
+  background:var(--white);border:1px solid var(--line);border-radius:3px;
+  padding:6px;display:grid;gap:2px;box-shadow:0 20px 50px -18px rgba(22,48,31,.35);
+}
+.menu-panel a{
+  text-decoration:none;color:var(--ink-soft);font-size:15px;
+  padding:11px 13px;border-radius:2px;transition:.15s;
+}
+.menu-panel a:hover{color:var(--ink);background:rgba(169,123,46,.09)}
+.menu-panel a[aria-current]{color:var(--ink);background:rgba(169,123,46,.09)}
+@media(max-width:900px){.menu{display:block}}
+
+/* ================= CART BUTTON ================= */
+.cart-btn{
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  background:transparent;border:1px solid var(--line);color:var(--ink);
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  padding:9px 15px;border-radius:2px;transition:.2s;
+}
+.cart-btn:hover{border-color:var(--gold);background:rgba(169,123,46,.07)}
+.cart-count{
+  background:var(--gold);color:var(--white);border-radius:20px;
+  min-width:18px;height:18px;display:grid;place-items:center;
+  font-size:11px;font-weight:600;padding:0 5px;
+}
+
+/* ================= SHOP PAGE ================= */
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,72px);align-items:start}
+@media(max-width:940px){.shop{grid-template-columns:1fr}}
+.gallery{display:grid;gap:12px;max-width:520px}
+.gallery .main{grid-column:1/-1;border-radius:3px;overflow:hidden;border:1px solid var(--line)}
+.gallery .main img{aspect-ratio:1;object-fit:cover;width:100%}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.thumbs button{
+  padding:0;border:1px solid var(--line);background:none;cursor:pointer;
+  border-radius:2px;overflow:hidden;transition:.2s;
+}
+.thumbs button[aria-current="true"]{border-color:var(--gold)}
+.thumbs button:hover{border-color:var(--gold)}
+.thumbs img{aspect-ratio:1;object-fit:cover;width:100%}
+.buybox h2{margin-bottom:8px}
+
+/* size selector — segmented control (Quils/Cushions have no variants, garlands do) */
+.sizes{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 4px}
+.sizes button{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
+  padding:9px 16px;min-height:44px;border-radius:2px;
+  background:transparent;border:1px solid var(--line);color:var(--ink-soft);
+  cursor:pointer;transition:color .2s,border-color .2s,background .2s;
+}
+.sizes button:hover{border-color:var(--gold);color:var(--ink)}
+.sizes button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sizes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream);font-weight:600}
+
+/* variant cards — milld.com-style tiered picker, reuses .sizes so the same
+   JS/aria-pressed wiring drives both; this modifier just changes the shape */
+.sizes.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px;margin-top:16px}
+.sizes.cards button,.sizes.cards a{
+  position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;
+  min-height:auto;height:auto;padding:15px 14px 13px;text-align:left;
+}
+.sizes.cards .tier-label{font-size:13.5px;font-weight:600;font-family:var(--body);color:inherit}
+.sizes.cards .tier-price{font-family:var(--display);font-size:17px;font-weight:600}
+.sizes.cards button[aria-pressed="true"] .tier-price{color:var(--gold-lit)}
+.sizes.cards .tier-unit{font-family:var(--mono);font-size:9.5px;letter-spacing:.02em;opacity:.75}
+.sizes.cards .badge{
+  position:absolute;top:-9px;right:10px;background:var(--gold);color:var(--white);
+  font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 8px;border-radius:20px;white-space:nowrap;
+}
+.sizes.cards a.custom-tier{grid-column:1/-1;flex-direction:row;align-items:center;gap:10px;color:var(--ink-soft);text-decoration:none}
+.sizes.cards a.custom-tier .tier-price{font-size:14px}
+.sizes.cards a.custom-tier:hover{border-color:var(--gold);color:var(--ink)}
+
+.price{display:flex;align-items:baseline;gap:12px;margin:20px 0 6px}
+.price .amt{font-family:var(--display);font-size:38px;font-weight:600;color:var(--ink)}
+.price .mrp{color:var(--ink-soft);text-decoration:line-through;font-size:16px}
+.price .off{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  background:rgba(123,45,82,.1);border:1px solid rgba(169,123,46,.3);
+  color:var(--cord);padding:3px 8px;border-radius:2px;
+}
+.tax{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:.05em}
+
+.stock{margin:24px 0;padding:16px 18px;border-radius:2px;border:1px solid var(--line);background:var(--cream-2)}
+.stock-row{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.dot{width:7px;height:7px;border-radius:50%;background:#4E9A63;box-shadow:0 0 0 0 rgba(78,154,99,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(78,154,99,.5)}70%{box-shadow:0 0 0 7px rgba(78,154,99,0)}100%{box-shadow:0 0 0 0 rgba(78,154,99,0)}}
+.stock.low .dot{background:#B67F1E;animation:none}
+.stock.out .dot{background:#A23B33;animation:none}
+.stock-label{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);transition:width .7s ease}
+.stock small{display:block;margin-top:9px;font-size:12.5px;color:var(--ink-soft)}
+
+.qty{display:flex;align-items:center;gap:0;margin:22px 0;width:fit-content;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.qty button{width:44px;height:44px;background:transparent;border:0;cursor:pointer;color:var(--ink);font-size:19px;transition:.15s}
+.qty button:hover:not(:disabled){background:rgba(169,123,46,.1)}
+.qty button:disabled{opacity:.3;cursor:not-allowed}
+.qty span{width:52px;text-align:center;font-family:var(--mono);font-size:15px;border-inline:1px solid var(--line);line-height:44px}
+.buy-actions{display:flex;gap:12px;flex-wrap:wrap}
+.buy-actions .btn{flex:1;min-width:170px;justify-content:center}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+.assure{list-style:none;padding:22px 0 0;margin:24px 0 0;border-top:1px solid var(--line);display:grid;gap:11px}
+.assure li{display:flex;gap:10px;font-size:14.5px;color:var(--ink-soft);align-items:flex-start}
+.assure li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0}
+
+/* product cards below the fold — Cushion / Quils, simple add-to-cart */
+.catalogue-head{margin:clamp(70px,9vw,110px) 0 clamp(28px,3.5vw,44px);max-width:58ch}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;
+}
+.card{background:var(--white);padding:0;display:flex;flex-direction:column;transition:background .2s}
+.card:hover{background:var(--cream-2)}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--cream-2)}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .card-img img{transform:scale(1.04)}
+.grade{
+  position:absolute;top:0;left:0;z-index:2;background:var(--white);
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--gold);padding:6px 10px;
+}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:18px;margin-bottom:4px}
+.card .tag{color:var(--ink-soft);font-size:13.5px;margin:0 0 14px;flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card .p{display:flex;align-items:baseline;gap:7px}
+.card .p b{font-family:var(--display);font-size:21px;color:var(--ink);font-weight:600}
+.card .p s{color:var(--ink-soft);font-size:12.5px}
+.card .add{
+  background:transparent;border:1px solid var(--line);color:var(--ink);
+  font-family:var(--body);font-size:13px;font-weight:600;cursor:pointer;
+  padding:9px 15px;border-radius:2px;transition:.18s;white-space:nowrap;
+}
+.card .add:hover:not(:disabled){background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.card .add:disabled{opacity:.4;cursor:not-allowed}
+.card .st{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:11px;display:flex;align-items:center;gap:6px;color:var(--ink-soft)}
+.card .st i{width:5px;height:5px;border-radius:50%;background:#4E9A63;display:block}
+.card .st.low i{background:#B67F1E}
+.card .st.out i{background:#A23B33}
+.card.sold .card-img img{filter:grayscale(.75) brightness(.85)}
+
+/* ================= CHECKOUT / ADDRESS FORM ================= */
+.step-head{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.step-head b{color:var(--gold)}
+.form{display:grid;gap:12px}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--white);border:1px solid var(--line);
+  color:var(--ink);font-family:var(--body);font-size:14.5px;
+  padding:11px 12px;border-radius:2px;transition:border-color .15s;
+}
+.field textarea{resize:vertical;min-height:64px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.field input::placeholder,.field textarea::placeholder{color:#9AA394}
+.field select{appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);
+  background-position:calc(100% - 16px) 19px,calc(100% - 11px) 19px;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+}
+.field.bad input,.field.bad select,.field.bad textarea{border-color:#A23B33}
+.err{color:#A23B33;font-size:13px;margin:2px 0 0;display:none}
+.err.show{display:block}
+.form-err{background:rgba(162,59,51,.09);border:1px solid rgba(162,59,51,.35);color:#8E332C;font-size:13.5px;padding:11px 13px;border-radius:2px;margin-bottom:14px;display:none}
+.form-err.show{display:block}
+.back-link{background:none;border:0;color:var(--ink-soft);cursor:pointer;font-size:13px;text-decoration:underline;padding:0;margin-bottom:16px}
+.back-link:hover{color:var(--gold)}
+
+/* ================= CART DRAWER ================= */
+.scrim{position:fixed;inset:0;background:rgba(22,48,31,.5);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.28s;z-index:80}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);
+  background:var(--cream);border-left:1px solid var(--line);z-index:90;
+  transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+}
+.drawer.open{transform:none}
+.drawer-top{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.drawer-top h3{font-size:19px}
+.drawer-top button{background:none;border:0;color:var(--ink-soft);font-size:25px;cursor:pointer;line-height:1}
+.drawer-body{flex:1;overflow-y:auto;padding:24px}
+.line-item{display:flex;gap:14px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+.line-item img{width:68px;height:68px;object-fit:cover;border-radius:2px;border:1px solid var(--line)}
+.line-item div{flex:1}
+.line-item b{display:block;font-family:var(--display);font-size:16px;font-weight:600;margin-bottom:3px}
+.line-item small{color:var(--ink-soft);font-family:var(--mono);font-size:12px}
+.line-item .rm{background:none;border:0;color:var(--ink-soft);cursor:pointer;font-size:12px;text-decoration:underline;padding:0;margin-top:6px;display:block}
+.empty{text-align:center;color:var(--ink-soft);padding:50px 0;font-size:15px}
+.drawer-foot{padding:22px 24px;border-top:1px solid var(--line);background:var(--cream-2)}
+.total{display:flex;justify-content:space-between;margin-bottom:16px;align-items:baseline}
+.total b{font-family:var(--display);font-size:26px;color:var(--ink)}
+.drawer-foot .btn{width:100%;justify-content:center}
+.secure-note{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:13px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-soft)}
+
+/* toast */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translate(-50%,120%);
+  background:var(--ink);color:var(--cream);padding:13px 22px;border-radius:2px;
+  font-size:14px;font-weight:600;z-index:100;transition:transform .3s;
+  box-shadow:0 12px 40px -8px rgba(22,48,31,.5);
+}
+.toast.show{transform:translate(-50%,0)}
+
+/* ================= LOGIN GATE (shop buy-flow) ================= */
+.login-modal{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.97);
+  width:min(880px,92vw);max-height:90vh;overflow:auto;
+  background:var(--white);border-radius:3px;z-index:95;
+  display:grid;grid-template-columns:1fr 1fr;
+  box-shadow:0 40px 100px -30px rgba(22,48,31,.5);
+  opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;
+}
+.login-modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+@media(max-width:760px){.login-modal{grid-template-columns:1fr}}
+.login-art{position:relative;background:var(--cream-2)}
+.login-art img{width:100%;height:100%;object-fit:cover;min-height:220px}
+@media(max-width:760px){.login-art{display:none}}
+.login-body{padding:clamp(28px,4vw,44px);position:relative;display:flex;flex-direction:column;gap:16px;justify-content:center}
+.login-close{
+  position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--line);background:var(--white);color:var(--ink-soft);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;transition:.2s;
+}
+.login-close:hover{border-color:var(--gold);color:var(--ink)}
+.login-body h3{text-align:center;margin:6px 0 4px}
+.login-phone{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.login-phone .cc{
+  display:flex;align-items:center;padding:0 14px;background:var(--cream-2);
+  font-family:var(--mono);font-size:14.5px;color:var(--ink-soft);border-right:1px solid var(--line);
+}
+.login-phone input{
+  flex:1;border:0;padding:13px 14px;font-family:var(--body);font-size:15px;color:var(--ink);background:var(--white);
+}
+.login-phone input:focus{outline:none}
+.login-check{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink-soft);cursor:pointer}
+.login-legal{font-size:12px;color:var(--ink-soft);text-align:center;line-height:1.6;margin:0}
+.login-legal a{color:var(--gold);text-decoration:underline}
+
+/* ================= PULL-QUOTE (About page etymology) ================= */
+.pull-quote{
+  border-left:2px solid var(--gold);padding-left:clamp(20px,3vw,34px);
+  margin:clamp(30px,4vw,48px) 0;
+}
+.pull-quote p{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:300;line-height:1.35;margin:0 0 10px;color:var(--ink)}
+.pull-quote b{color:var(--gold)}

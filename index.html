@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F7F2E8">
 
-<title>Vetriver — Vetiver Root, Direct from the Farm | Dindigul, Tamil Nadu</title>
-<meta name="description" content="India's largest independent-farmer vetiver network. 300+ tonnes harvested. Window hangings (malai), cushions and quils — direct from our Dindigul yard, no middlemen. Bulk and wholesale enquiries welcome. Call +91 72002 43432.">
-<link rel="canonical" href="https://vetriver.in/trade">
+<title>Vetriver — The Root That Refreshes Your Home | Vetiver Garlands, Quils &amp; Cushions</title>
+<meta name="description" content="For over 5,000 years, Vetiver has cooled homes, purified water and protected the land. Handcrafted Vetiver garlands, quils and cushions — grown by 2,000+ contract farmers across India, woven by hand.">
+<link rel="canonical" href="https://vetriver.in/">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Vetriver Natural Wellness">
-<meta property="og:title" content="Vetriver — Vetiver Root, Direct from the Farm">
-<meta property="og:description" content="300+ tonnes of farmer-grown vetiver. Window hangings, cushions, quils. No middlemen. Dindigul, Tamil Nadu.">
+<meta property="og:site_name" content="Vetriver">
+<meta property="og:title" content="Vetriver — The Root That Refreshes Your Home">
+<meta property="og:description" content="5,000 years of timeless wisdom. Handcrafted Vetiver garlands, quils and cushions, direct from Dindigul, Tamil Nadu.">
 <meta property="og:image" content="https://vetriver.in/assets/h-garland.jpg">
+<meta property="og:url" content="https://vetriver.in/">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/logo-light.png">
@@ -25,33 +26,46 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://vetriver.in/#trade",
-  "name": "Vetriver Farmers India Private Limited",
-  "image": "https://vetriver.in/assets/h-garland.jpg",
-  "description": "India's largest independent-farmer vetiver network. Vetiver root window hangings (malai), cushions and quils, direct from the Dindigul yard.",
-  "telephone": "+91-7200243432",
-  "email": "garland@vetriver.in",
-  "url": "https://vetriver.in/trade",
-  "priceRange": "₹₹",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Ottanchatharam",
-    "addressLocality": "Dindigul",
-    "addressRegion": "Tamil Nadu",
-    "postalCode": "624619",
-    "addressCountry": "IN"
-  },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-    "opens": "09:00", "closes": "18:00"
-  }],
-  "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Vetiver Window Hanging (Malai) — 1 ft, 2 ft, 3 ft" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Long Window Garland" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Vetiver Root Cushion" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Vetiver Root Quils" } }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vetriver.in/#org",
+      "name": "Vetriver Farmers India Private Limited",
+      "alternateName": "Vetriver",
+      "url": "https://vetriver.in/",
+      "logo": "https://vetriver.in/assets/logo-light.png",
+      "description": "Vetri means Victory. Ver means Root. Handcrafted Vetiver garlands, quils and cushions, grown by more than 2,000 contract farmers across India.",
+      "telephone": "+91-7200243432",
+      "email": "garland@vetriver.in",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ottanchatharam",
+        "addressLocality": "Dindigul",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "624619",
+        "addressCountry": "IN"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://vetriver.in/#garland",
+      "name": "Vetiver Garland — 1 ft, 2 ft, 3 ft, 5 ft",
+      "image": ["https://vetriver.in/assets/garland-1ft.jpg","https://vetriver.in/assets/garland-2ft.jpg","https://vetriver.in/assets/garland-3ft.jpg"],
+      "description": "Elegant handcrafted vetiver root garlands that naturally enhance interiors while celebrating India's rich artisanal heritage.",
+      "brand": { "@type": "Brand", "name": "Vetriver" },
+      "material": "Vetiver root (Chrysopogon zizanioides)",
+      "countryOfOrigin": "IN",
+      "offers": { "@type": "AggregateOffer", "priceCurrency": "INR", "lowPrice": "899", "highPrice": "2999", "offerCount": "4" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://vetriver.in/#catalogue",
+      "name": "Vetriver products",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "Vetiver Cushion", "image": "https://vetriver.in/assets/c-mat.jpg", "offers": { "@type": "Offer", "price": "1249", "priceCurrency": "INR" } } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "Vetiver Quils", "image": "https://vetriver.in/assets/c-pad.jpg", "offers": { "@type": "Offer", "price": "399", "priceCurrency": "INR" } } }
+      ]
+    }
   ]
 }
 </script>
@@ -60,19 +74,37 @@
 
 <a class="skip" href="#top">Skip to content</a>
 
+<div class="splash" aria-hidden="true">
+  <img src="assets/logo-light.png" alt="">
+  <small>Vetriver</small>
+</div>
+
 <header>
   <nav class="wrap">
-    <a class="brand" href="#top">
+    <a class="brand" href="index.html">
       <img src="assets/logo-light.png" alt="" width="36">
       <span><b>VETRIVER</b><small>Natural Wellness</small></span>
     </a>
     <div class="navlinks">
-      <a href="#range">The Range</a>
-      <a href="#farm">The Farm</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#visit">Visit</a>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About Us</a>
     </div>
-    <a class="btn btn-solid btn-sm" href="tel:+917200243432">Call us</a>
+    <button class="cart-btn" id="cartBtn" aria-label="Open cart" aria-controls="drawer" aria-expanded="false">
+      CART <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <details class="menu" id="mobileMenu">
+      <summary aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </summary>
+      <div class="menu-panel">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
+      </div>
+    </details>
   </nav>
 </header>
 
@@ -84,26 +116,22 @@
     <div>
       <span class="rating">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <span>Grown in Dindigul · Tamil Nadu</span>
+        <span>5,000 Years of Timeless Wisdom</span>
       </span>
-      <h1>Three hundred tonnes<em>of root, and counting.</em></h1>
+      <h1>The root that<em>refreshes your home.</em></h1>
       <p class="lede">
-        We buy the vetiver harvest straight from independent farmers around
-        Ottanchatharam — the whole crop, at a committed price, before it is dug.
-        Then we clean it, grade it, and make everything it can become.
+        For over 5,000 years, Vetiver has been treasured for naturally cooling homes,
+        refreshing water, protecting the land, and bringing people closer to nature.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-solid" href="tel:+917200243432">Call +91 72002 43432</a>
-        <a class="btn btn-ghost" href="https://wa.me/917200243432" target="_blank" rel="noopener">
-          WhatsApp us
-        </a>
+        <a class="btn btn-solid" href="#collection">Discover Vetiver</a>
       </div>
     </div>
 
     <div class="hero-img">
       <video id="heroVideo" src="assets/hero.mp4" poster="assets/h-garland.jpg"
              autoplay muted loop playsinline
-             aria-label="Vetriver window hanging — handwoven vetiver root product video"></video>
+             aria-label="Vetriver garland — handwoven vetiver root product video"></video>
       <button class="mute-btn" id="muteBtn" data-muted="true" aria-label="Unmute video">
         <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M11 5 6 9H3v6h3l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
@@ -116,213 +144,189 @@
   </div>
 </section>
 
-<!-- ==================== NO MIDDLEMEN ==================== -->
+<!-- ==================== ONE ROOT. THREE GIFTS. ==================== -->
+<section id="gifts">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">One root. Three gifts.</p>
+      <h2>Air. Water. Land.</h2>
+      <p class="lede" style="margin-top:14px">
+        Nature has already created one of its most remarkable purifiers.
+      </p>
+    </div>
+
+    <div class="supply">
+      <article class="rv">
+        <p class="n">AIR</p>
+        <h3>A cooler, fresher room</h3>
+        <p>Traditionally valued for naturally cooling spaces and creating fresher, more comfortable surroundings.</p>
+      </article>
+      <article class="rv">
+        <p class="n">WATER</p>
+        <h3>An earthy, cooling aroma</h3>
+        <p>Used for generations to naturally refresh drinking water with its earthy aroma and cooling character.</p>
+      </article>
+      <article class="rv">
+        <p class="n">LAND</p>
+        <h3>Roots that protect the soil</h3>
+        <p>Its deep roots help protect soil, reduce erosion, and support healthier ecosystems.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== A LEGACY OF NATURE ==================== -->
 <div class="band">
   <div class="wrap">
-    <h2>Straight from our own yard. No middlemen.</h2>
+    <h2>5,000 years of timeless wisdom.</h2>
     <div>
       <p>
-        Most sellers buy a sack of roots from a trader and call it sourcing. We work
-        the other end of the chain — the farmer's end — which is why we can price the
-        way we do, and why we can tell you exactly which field your order came from.
+        Long before modern solutions, ancient Siddha traditions recognised Vetiver as one
+        of nature's most valuable gifts. For thousands of years, it has been woven into
+        everyday life — not only for its fragrance, but for its ability to create
+        healthier, cooler, and more harmonious living spaces.
       </p>
       <div class="figs">
-        <div><b>300+</b><span>Tonnes a year</span></div>
-        <div><b>0</b><span>Middlemen</span></div>
-        <div><b>100%</b><span>Farmer-grown</span></div>
+        <div><b>5,000+</b><span>Years of heritage</span></div>
+        <div><b>2,000+</b><span>Contract farmers</span></div>
+        <div><b>100%</b><span>Natural</span></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ==================== THE RANGE ==================== -->
-<section id="range">
+<!-- ==================== NATURE'S COOLING TOUCH ==================== -->
+<section id="cooling">
+  <div class="wrap">
+    <div class="heritage-grid">
+      <div class="rv">
+        <p class="eyebrow">Nature's cooling touch</p>
+        <h2>Before air conditioners,<br>there was Vetiver.</h2>
+        <p class="lede" style="margin-top:16px">
+          Homes across India were once cooled with Vetiver curtains, woven screens, and
+          naturally infused water. As the breeze passed through Vetiver roots, it carried
+          a refreshing aroma and a cooling sensation that made summer more comfortable —
+          naturally.
+        </p>
+        <p class="lede" style="margin-top:14px">
+          Today, Vetriver brings this timeless wisdom back into modern living.
+        </p>
+      </div>
+      <div class="frame rv" style="border-radius:3px;overflow:hidden;border:1px solid var(--line)">
+        <img src="assets/c-curtain.jpg" loading="lazy"
+             alt="Traditional vetiver root curtain used to naturally cool Indian homes">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY VETRIVER — ETYMOLOGY ==================== -->
+<section id="why" style="background:var(--cream-2);border-block:1px solid var(--line)">
+  <div class="wrap" style="max-width:860px">
+    <div class="sec-head rv">
+      <p class="eyebrow">Why Vetriver?</p>
+      <h2>Victory begins at the root.</h2>
+    </div>
+    <div class="pull-quote rv">
+      <p><b>Vetri</b> means Victory.<br><b>Ver</b> means Root.</p>
+      <p style="font-size:17px;color:var(--ink-soft);font-family:var(--body);font-weight:400">
+        Together, Vetriver represents the belief that true prosperity begins with nature.
+        When the air is cleaner, the water is fresher, and the land is healthier, every
+        home flourishes. That is the philosophy behind everything we create.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FROM ROOT TO HOME ==================== -->
+<section id="root-to-home">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">The range</p>
-      <h2>One root. Everything it can become.</h2>
+      <p class="eyebrow">From root to home</p>
+      <h2>Nature grows it.<br>Human hands bring it to life.</h2>
+    </div>
+    <div class="supply">
+      <article class="rv">
+        <p class="n">THE FIELD</p>
+        <h3>2,000+ contract farmers</h3>
+        <p>Every Vetriver creation begins in the fields. We proudly partner with more than
+           2,000 contract farmers across India who cultivate Vetiver with care and respect
+           for the land.</p>
+      </article>
+      <article class="rv">
+        <p class="n">THE HANDS</p>
+        <h3>Skilled women artisans</h3>
+        <p>Every harvested root is transformed by skilled women artisans, preserving
+           generations of Indian craftsmanship through beautifully handcrafted creations.</p>
+      </article>
+      <article class="rv">
+        <p class="n">THE HOME</p>
+        <h3>Nature, brought indoors</h3>
+        <p>The result is a handcrafted piece that carries the fragrance, the history and
+           the philosophy of Vetriver into your everyday living space.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OUR COLLECTION ==================== -->
+<section id="collection">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Our collection</p>
+      <h2>Crafted from nature.</h2>
       <p class="lede" style="margin-top:14px">
-        The harvest is sorted by grade. The longest, finest fibre is tied into window
-        hangings. What follows becomes a cushion, a set of quils. Nothing is thrown away.
+        Every product celebrates the beauty, fragrance, and timeless character of
+        Vetiver — designed to bring nature into everyday living.
       </p>
     </div>
 
     <div class="cols rv">
-      <a class="col" href="https://wa.me/917200243432?text=I'm%20interested%20in%20the%20window%20hangings"
-         target="_blank" rel="noopener">
+      <a class="col" href="shop.html#buy">
         <div class="col-img">
           <span class="g">Finest long fibre</span>
-          <img src="assets/h-garland.jpg" alt="Handwoven vetiver root window hanging (malai)" loading="lazy">
+          <img src="assets/h-garland.jpg" alt="Handcrafted vetiver garland" loading="lazy">
         </div>
-        <h3>Window Hanging (Malai)</h3>
-        <p>Hand-tied by rural women artisans</p>
-        <span class="from">From ₹899</span>
-        <div class="size-chips">
-          <span class="size-chip">1 ft</span>
-          <span class="size-chip">2 ft</span>
-          <span class="size-chip">3 ft</span>
-        </div>
+        <h3>Vetiver Garlands</h3>
+        <p>Elegant handcrafted garlands that celebrate India's artisanal heritage</p>
+        <span class="from">From ₹899 · 1 ft to 5 ft+</span>
       </a>
 
-      <a class="col" href="https://wa.me/917200243432?text=I'm%20interested%20in%20the%20long%20window%20garland"
-         target="_blank" rel="noopener">
-        <div class="col-img">
-          <span class="g">Finest long fibre</span>
-          <img src="assets/h-garland.jpg" alt="Long vetiver root window garland" loading="lazy">
-        </div>
-        <h3>Long Window Garland</h3>
-        <p>The long-strand window piece</p>
-        <span class="from">From ₹1,699</span>
-      </a>
-
-      <a class="col" href="https://wa.me/917200243432?text=I'm%20interested%20in%20vetiver%20cushions"
-         target="_blank" rel="noopener">
-        <div class="col-img">
-          <span class="g">Medium fibre</span>
-          <img src="assets/c-mat.jpg" alt="Woven vetiver root cushion" loading="lazy">
-        </div>
-        <h3>Cushion</h3>
-        <p>Woven root, cool to touch</p>
-        <span class="from">From ₹1,249</span>
-      </a>
-
-      <a class="col" href="https://wa.me/917200243432?text=I'm%20interested%20in%20vetiver%20quils"
-         target="_blank" rel="noopener">
+      <a class="col" href="shop.html#more">
         <div class="col-img">
           <span class="g">Short fibre</span>
-          <img src="assets/c-pad.jpg" alt="Hand-rolled vetiver root quils" loading="lazy">
+          <img src="assets/c-pad.jpg" alt="Handcrafted vetiver quils" loading="lazy">
         </div>
-        <h3>Quils</h3>
-        <p>Hand-rolled root quils</p>
-        <span class="from">From ₹399 · Bulk rates</span>
+        <h3>Vetiver Quils</h3>
+        <p>Woven creations that add warmth, texture and the presence of nature</p>
+        <span class="from">From ₹399</span>
+      </a>
+
+      <a class="col" href="shop.html#more">
+        <div class="col-img">
+          <span class="g">Medium fibre</span>
+          <img src="assets/c-mat.jpg" alt="Handcrafted vetiver cushion" loading="lazy">
+        </div>
+        <h3>Vetiver Cushions</h3>
+        <p>Cushions that blend comfort, craftsmanship and natural charm</p>
+        <span class="from">From ₹1,249</span>
       </a>
     </div>
-  </div>
-</section>
 
-<!-- ==================== REVIEWS ==================== -->
-<section id="reviews">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">What people say</p>
-      <h2>Voices from the doorway.</h2>
-    </div>
-    <div class="quotes rv">
-      <figure class="quote">
-        <span class="stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
-        <blockquote>
-          “Hung it at the front door in May. The whole hall smells of wet earth after
-          I spray it. My mother says it is exactly like her childhood home.”
-        </blockquote>
-        <cite>Lakshmi V</cite>
-        <small>Madurai</small>
-      </figure>
-      <figure class="quote">
-        <span class="stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
-        <blockquote>
-          “We ordered cushions for all four rooms at the guest house. Cool to sit on
-          and the rooms smell clean instead of like plastic.”
-        </blockquote>
-        <cite>Ranjith Kumar</cite>
-        <small>Bulk buyer · Kodaikanal</small>
-      </figure>
-      <figure class="quote">
-        <span class="stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
-        <blockquote>
-          “Ordered garlands for the temple. They arrived tied properly, not glued.
-          You can tell it is made by hand. We have ordered three times now.”
-        </blockquote>
-        <cite>Suresh Iyer</cite>
-        <small>Repeat customer · Coimbatore</small>
-      </figure>
-    </div>
-
-    <!-- Honest placeholder note. Real reviews replace these before launch. -->
-    <p style="margin-top:26px;font-family:var(--mono);font-size:11.5px;
-              color:var(--ink-soft);letter-spacing:.04em">
-      Replace these with real Google reviews before launch — see PLAN.md.
-    </p>
-  </div>
-</section>
-
-<!-- ==================== THE FARM ==================== -->
-<section id="farm">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">The farm</p>
-      <h2>Vetiver takes eighteen months<br>to be worth digging up.</h2>
-      <p class="lede" style="margin-top:14px">
-        The roots go down two metres or more. That is the whole point of the plant —
-        it holds the soil, it survives the dry months, and when you finally dig it,
-        the fibre is long enough to weave. There is no way to hurry it.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-gold" href="https://wa.me/917200243432?text=I'd%20like%20to%20discuss%20a%20bulk%20or%20wholesale%20order"
-           target="_blank" rel="noopener">Talk to us about bulk</a>
-      </div>
+    <div class="hero-cta" style="margin-top:clamp(30px,4vw,44px);justify-content:center">
+      <a class="btn btn-gold" href="shop.html">Explore Collection</a>
     </div>
   </div>
 </section>
 
-<!-- ==================== VISIT ==================== -->
-<section id="visit" style="background:var(--cream-2);border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="visit">
-      <div class="rv">
-        <p class="eyebrow">Come and see it</p>
-        <h2>The yard at Ottanchatharam</h2>
-        <p class="lede" style="margin:16px 0 22px">
-          Come and smell the drying yard. Pick up a root, break it, see how it is
-          graded. If you are buying in quantity, this is the only way to buy it properly.
-        </p>
-        <address class="addr">
-          Vetriver Farmers India Private Limited<br>
-          Ottanchatharam, Dindigul (DT),<br>
-          Tamil Nadu, India
-        </address>
-        <p class="hours">Open Mon – Sat · 9:00 AM – 6:00 PM</p>
-
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps?q=Ottanchatharam,Dindigul,Tamil%20Nadu&output=embed"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Vetriver, Ottanchatharam, Dindigul"></iframe>
-        </div>
-      </div>
-
-      <div class="panels rv">
-        <div class="panel">
-          <h4>Call to order</h4>
-          <a class="big" href="tel:+917200243432">+91 72002 43432</a>
-          <p>
-            Talk to us directly about sizes, quantities and custom orders. For anything
-            above a few kilos, a call will always get you a better answer than a form.
-          </p>
-          <a class="btn btn-solid" href="tel:+917200243432">Call now</a>
-        </div>
-
-        <div class="panel">
-          <h4>Or message us</h4>
-          <a class="big" href="mailto:garland@vetriver.in">garland@vetriver.in</a>
-          <p>
-            Send photos, measurements, or a purchase order. We reply on WhatsApp
-            within the working day.
-          </p>
-          <a class="btn btn-gold" href="https://wa.me/917200243432" target="_blank" rel="noopener">
-            WhatsApp us
-          </a>
-        </div>
-
-        <div class="panel">
-          <h4>Our guarantee</h4>
-          <span class="big" style="font-size:22px">“One root. Many benefits.”</span>
-          <p style="margin-top:10px">
-            If it arrives damaged, we replace it. If the grade is not what you were
-            promised, we take it back. We are the farm, so there is nobody for us
-            to blame.
-          </p>
-        </div>
-      </div>
+<!-- ==================== FINAL: BRING NATURE HOME ==================== -->
+<section id="final" style="background:var(--ink);color:var(--cream);text-align:center">
+  <div class="wrap" style="max-width:680px">
+    <p class="eyebrow" style="color:var(--gold-lit);justify-content:center">Bring nature home</p>
+    <h2 style="color:var(--cream)">A single root.<br>Thousands of years of wisdom.<br>A more refreshing way to live.</h2>
+    <p class="lede" style="color:rgba(239,231,214,.72);margin:18px auto 0">Experience Vetriver.</p>
+    <div class="hero-cta" style="justify-content:center;margin-top:28px">
+      <a class="btn btn-gold" href="shop.html">Experience Vetriver</a>
     </div>
   </div>
 </section>
@@ -333,13 +337,13 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="brand" href="#top" style="margin-bottom:16px">
+        <a class="brand" href="index.html" style="margin-bottom:16px">
           <img src="assets/logo-light.png" alt="" width="38">
           <span><b>VETRIVER</b><small>Natural Wellness</small></span>
         </a>
         <p style="max-width:36ch;font-size:14.5px">
-          India's largest independent-farmer vetiver network. Grown, graded and
-          handmade in Dindigul, Tamil Nadu.
+          Vetri means Victory. Ver means Root. Handcrafted Vetiver creations, grown by
+          more than 2,000 contract farmers across India.
         </p>
         <div class="chips">
           <span class="chip">Wholesale</span>
@@ -351,11 +355,9 @@
       <div>
         <h4>Explore</h4>
         <ul>
-          <li><a href="#range">The Range</a></li>
-          <li><a href="#farm">The Farm</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#visit">Visit</a></li>
-          <li><a href="/">Shop online →</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
         </ul>
       </div>
       <div>
@@ -380,6 +382,83 @@
   <a class="btn btn-gold" href="https://wa.me/917200243432" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
+<!-- ==================== CART ==================== -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+  <div class="drawer-top">
+    <h3 id="drawerTitle">Your cart</h3>
+    <button id="closeCart" aria-label="Close cart">×</button>
+  </div>
+
+  <div class="drawer-body">
+    <div id="stepCart">
+      <div id="cartBody"></div>
+    </div>
+
+    <div id="stepShip" hidden>
+      <button class="back-link" id="backToCart">← Back to cart</button>
+      <div class="step-head"><b>STEP 2 OF 2</b> · Delivery details</div>
+      <div class="form-err" id="formErr"></div>
+
+      <div class="form">
+        <div class="field">
+          <label for="fName">Full name</label>
+          <input id="fName" autocomplete="name" placeholder="Who should we address it to?">
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="fPhone">Mobile</label>
+            <input id="fPhone" inputmode="numeric" autocomplete="tel"
+                   maxlength="10" placeholder="10 digits">
+          </div>
+          <div class="field">
+            <label for="fPin">PIN code</label>
+            <input id="fPin" inputmode="numeric" autocomplete="postal-code"
+                   maxlength="6" placeholder="6 digits">
+          </div>
+        </div>
+        <div class="field">
+          <label for="fEmail">Email</label>
+          <input id="fEmail" type="email" autocomplete="email"
+                 placeholder="For your order confirmation">
+        </div>
+        <div class="field">
+          <label for="fAddr">Address</label>
+          <textarea id="fAddr" autocomplete="street-address"
+                    placeholder="House / flat, street, landmark"></textarea>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="fCity">City</label>
+            <input id="fCity" autocomplete="address-level2" placeholder="City or town">
+          </div>
+          <div class="field">
+            <label for="fState">State</label>
+            <select id="fState" autocomplete="address-level1">
+              <option value="">Select</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer-foot">
+    <div class="total"><span>Total</span><b id="cartTotal">₹0</b></div>
+    <button class="btn btn-solid" id="checkoutBtn">Continue to delivery</button>
+    <p class="secure-note">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+      </svg>
+      RAZORPAY · UPI · CARDS · NET BANKING
+    </p>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
 <script src="assets/site.js"></script>
+<script src="assets/shop.js"></script>
 </body>
 </html>
