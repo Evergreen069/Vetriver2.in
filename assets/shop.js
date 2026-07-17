@@ -48,10 +48,10 @@ const inr = n => '₹' + n.toLocaleString('en-IN');
    server.js CATALOGUE. The 5ft photo reuses the 3ft artwork — no distinct
    real photo exists yet for that size. */
 const MOCK_PRODUCTS = [
-  { id:'garland-1ft',      name:'Vetiver Garland — 1 ft', tagline:'Hand-tied vetiver root garland', grade:'Finest long fibre', price:899,  mrp:1299, img:'assets/garland-1ft.jpg', available:42, total:50, status:'in' },
-  { id:'garland-2ft',      name:'Vetiver Garland — 2 ft', tagline:'Hand-tied vetiver root garland', grade:'Finest long fibre', price:1449, mrp:1999, img:'assets/garland-2ft.jpg', available:33, total:40, status:'in' },
-  { id:'garland-3ft',      name:'Vetiver Garland — 3 ft', tagline:'Hand-tied vetiver root garland', grade:'Finest long fibre', price:1999, mrp:2699, img:'assets/garland-3ft.jpg', available:21, total:30, status:'in' },
-  { id:'garland-5ft',      name:'Vetiver Garland — 5 ft', tagline:'Hand-tied vetiver root garland', grade:'Finest long fibre', price:2999, mrp:3999, img:'assets/garland-5ft.jpg', available:14, total:20, status:'in' },
+  { id:'garland-1ft',      name:'Vetiver Garland, 1 ft', tagline:'Hand-tied vetiver root garland', grade:'Finest long fibre', price:899,  mrp:1299, img:'assets/garland-1ft.jpg', available:42, total:50, status:'in' },
+  { id:'garland-2ft',      name:'Vetiver Garland, 2 ft', tagline:'Hand-tied vetiver root garland', grade:'Finest long fibre', price:1449, mrp:1999, img:'assets/garland-2ft.jpg', available:33, total:40, status:'in' },
+  { id:'garland-3ft',      name:'Vetiver Garland, 3 ft', tagline:'Hand-tied vetiver root garland', grade:'Finest long fibre', price:1999, mrp:2699, img:'assets/garland-3ft.jpg', available:21, total:30, status:'in' },
+  { id:'garland-5ft',      name:'Vetiver Garland, 5 ft', tagline:'Hand-tied vetiver root garland', grade:'Finest long fibre', price:2999, mrp:3999, img:'assets/garland-5ft.jpg', available:14, total:20, status:'in' },
   { id:'cushion-classic',  name:'Vetiver Cushion',        tagline:'Woven root, cool to touch',      grade:'Medium fibre',      price:1249, mrp:1699, img:'assets/c-mat.jpg',       available:25, total:25, status:'in' },
   { id:'quils-classic',    name:'Vetiver Quils',          tagline:'Hand-rolled root quils',         grade:'Short fibre',       price:399,  mrp:599,  img:'assets/c-pad.jpg',       available:80, total:80, status:'in' },
 ];
@@ -84,7 +84,7 @@ async function loadCatalogue(){
       <article class="card ${gone ? 'sold' : ''}">
         <div class="card-img">
           <span class="grade">${p.grade}</span>
-          <img src="${p.img}" alt="${p.name} — ${p.tagline}" loading="lazy">
+          <img src="${p.img}" alt="${p.name}, ${p.tagline}" loading="lazy">
         </div>
         <div class="card-body">
           <h3>${p.name}</h3>
@@ -124,7 +124,7 @@ function renderPrice(){
   const off = Math.round((1 - p.price / p.mrp) * 100);
   $('offAmt').textContent = `SAVE ${off}%`;
   $('heroImg').src = p.img;
-  $('heroImg').alt = `Vetriver ${p.name} — handwoven vetiver root garland`;
+  $('heroImg').alt = `Vetriver ${p.name}, handwoven vetiver root garland`;
 }
 
 if($('sizePills')){
@@ -448,7 +448,7 @@ $('checkoutBtn').onclick = async () => {
       amount: order.amount,
       currency: 'INR',
       name: 'Vetriver',
-      description: 'Vetiver root — natural wellness',
+      description: 'Vetiver root, natural wellness',
       image: 'assets/logo-light.png',
       prefill: order.prefill,
       theme: { color: '#A97B2E' },
@@ -459,7 +459,7 @@ $('checkoutBtn').onclick = async () => {
           body: JSON.stringify(r)
         });
         cart = []; save(); renderCart(); closeCart(); gotoStep('cart');
-        toast('Payment received — thank you');
+        toast('Payment received, thank you');
         loadStock(); loadCatalogue();
       },
       modal: {

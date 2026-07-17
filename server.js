@@ -73,11 +73,11 @@ db.exec(`
    PLACEHOLDER PRICING for 2ft/3ft/5ft — scaled off the real 1ft price; confirm
    real numbers with the client before launch. */
 const CATALOGUE = [
-  ['garland-1ft',      'Vetiver Garland — 1 ft', 'Hand-tied vetiver root garland', 'Finest long fibre',  899,1299,'assets/garland-1ft.jpg', 50,1],
-  ['garland-2ft',      'Vetiver Garland — 2 ft', 'Hand-tied vetiver root garland', 'Finest long fibre', 1449,1999,'assets/garland-2ft.jpg', 40,2],
-  ['garland-3ft',      'Vetiver Garland — 3 ft', 'Hand-tied vetiver root garland', 'Finest long fibre', 1999,2699,'assets/garland-3ft.jpg', 30,3],
+  ['garland-1ft',      'Vetiver Garland, 1 ft', 'Hand-tied vetiver root garland', 'Finest long fibre',  899,1299,'assets/garland-1ft.jpg', 50,1],
+  ['garland-2ft',      'Vetiver Garland, 2 ft', 'Hand-tied vetiver root garland', 'Finest long fibre', 1449,1999,'assets/garland-2ft.jpg', 40,2],
+  ['garland-3ft',      'Vetiver Garland, 3 ft', 'Hand-tied vetiver root garland', 'Finest long fibre', 1999,2699,'assets/garland-3ft.jpg', 30,3],
   // No distinct real photo exists yet for 5 ft — reuses the 3 ft artwork as a placeholder.
-  ['garland-5ft',      'Vetiver Garland — 5 ft', 'Hand-tied vetiver root garland', 'Finest long fibre', 2999,3999,'assets/garland-5ft.jpg', 20,4],
+  ['garland-5ft',      'Vetiver Garland, 5 ft', 'Hand-tied vetiver root garland', 'Finest long fibre', 2999,3999,'assets/garland-5ft.jpg', 20,4],
   ['cushion-classic',  'Vetiver Cushion',        'Woven root, cool to touch',      'Medium fibre',       1249,1699,'assets/c-mat.jpg',       25,5],
   ['quils-classic',    'Vetiver Quils',          'Hand-rolled root quils',         'Short fibre',         399, 599,'assets/c-pad.jpg',       80,6],
 ];
